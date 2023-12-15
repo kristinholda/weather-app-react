@@ -2,7 +2,6 @@ import React from "react";
 import "./Weather.css";
 import FeelsLike from "./feels-like.svg";
 import Humidity from "./humidity.svg";
-import Location from "./location-light.svg";
 import Wind from "./wind.svg";
 
 export default function Weather() {
