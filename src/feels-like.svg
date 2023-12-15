@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.6" height="20.6" viewBox="0 0 11.6 20.6">
+  <g id="feels-like" transform="translate(-3.2 -1.2)">
+    <ellipse id="Ellipse_36694" data-name="Ellipse 36694" cx="2" cy="2" rx="2" ry="2" transform="translate(7 14)" fill="#17249a"/>
+    <path id="Path_6633" data-name="Path 6633" d="M9,16V8" fill="none" stroke="#17249a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+    <path id="Path_6634" data-name="Path 6634" d="M6,12.45l.465.651.335-.239V12.45Zm6,0h-.8v.412l.335.239ZM6.8,5A2.2,2.2,0,0,1,9,2.8V1.2A3.8,3.8,0,0,0,5.2,5Zm0,7.45V5H5.2v7.45Zm-2,3.8A3.869,3.869,0,0,1,6.465,13.1l-.929-1.3A5.468,5.468,0,0,0,3.2,16.25ZM9,20.2a4.081,4.081,0,0,1-4.2-3.95H3.2A5.679,5.679,0,0,0,9,21.8Zm4.2-3.95A4.081,4.081,0,0,1,9,20.2v1.6a5.679,5.679,0,0,0,5.8-5.55ZM11.535,13.1A3.869,3.869,0,0,1,13.2,16.25h1.6A5.468,5.468,0,0,0,12.465,11.8ZM11.2,5v7.45h1.6V5ZM9,2.8A2.2,2.2,0,0,1,11.2,5h1.6A3.8,3.8,0,0,0,9,1.2Z" fill="#17249a"/>
+  </g>
+</svg>
