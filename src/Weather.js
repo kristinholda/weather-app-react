@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import FeelsLike from "./feels-like.svg";
 import Humidity from "./humidity.svg";
@@ -19,7 +20,7 @@ export default function Weather(props) {
       feelsLike: Math.round(response.data.temperature.feels_like),
       humidity: response.data.temperature.humidity,
       wind: Math.round(response.data.wind.speed),
-      date: "Tuesday November 28, 2023 | 13:23",
+      date: new Date(response.data.time * 1000),
     });
   }
 
@@ -34,7 +35,7 @@ export default function Weather(props) {
                   {weatherData.city}
                 </h1>
                 <h2 className="date-hour" id="date-hour">
-                  {weatherData.date}
+                  <FormattedDate date={weatherData.date} />
                 </h2>
               </div>
               <div className="col-5">
