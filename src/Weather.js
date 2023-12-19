@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
-import FeelsLike from "./feels-like.svg";
-import Humidity from "./humidity.svg";
-import Wind from "./wind.svg";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -24,6 +23,22 @@ export default function Weather(props) {
     });
   }
 
+  function search() {
+    const apiKey = "4126dae244a02f134d2t0cdo0b2944b0";
+
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
   if (weatherData.ready) {
     return (
       <div className="container">
@@ -39,7 +54,7 @@ export default function Weather(props) {
                 </h2>
               </div>
               <div className="col-5">
-                <form id="search-form">
+                <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-10">
                       <input
@@ -47,7 +62,8 @@ export default function Weather(props) {
                         className="form-control"
                         placeholder="Type a city"
                         id="city-input"
-                        autoComplete="off"
+                        autoComplete="on"
+                        onChange={handleCityChange}
                       />
                     </div>
                     <div className="col-2">
@@ -63,61 +79,13 @@ export default function Weather(props) {
               </div>
             </div>
 
-            <div className="row current">
-              <div className="col-6 current-weather-temp">
-                <h3 id="temperature">{weatherData.temperature}</h3>
-                <ul>
-                  <li className="weather-units" id="units">
-                    °F | °C
-                  </li>
-                </ul>
-              </div>
-
-              <div className="col-3 current-weather-description">
-                <img
-                  src={weatherData.iconUrl}
-                  alt={weatherData.description}
-                  id="weather-icon"
-                />
-                <h4 className="weather-desc" id="weather-description">
-                  {weatherData.description}
-                </h4>
-              </div>
-
-              <div className="col-3 weather-conditions">
-                <ul id="weather-info">
-                  <li className="feels-like">
-                    <img
-                      src={FeelsLike}
-                      alt="feels-like-icon"
-                      className="icon"
-                    />{" "}
-                    Feels like:{" "}
-                    <span id="feels-like"> {weatherData.feelsLike}</span>°
-                  </li>
-                  <li className="humidity">
-                    <img src={Humidity} alt="humidity-icon" className="icon" />{" "}
-                    Humidity:{" "}
-                    <span id="humidity-level"> {weatherData.humidity}</span>%
-                  </li>
-                  <li className="wind">
-                    <img src={Wind} alt="wind-icon" className="icon" /> Wind:{" "}
-                    <span id="wind-speed"> {weatherData.wind}</span> km/h
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <WeatherInfo data={weatherData} />
           </div>
         </div>
       </div>
     );
   } else {
-    const apiKey = "4126dae244a02f134d2t0cdo0b2944b0";
-
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
-
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return <h1>Loading...</h1>;
   }
 }
