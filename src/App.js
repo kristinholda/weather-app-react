@@ -5,10 +5,10 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather />
+        <Weather defaultCity="London" />
 
         <footer>
-          <small class="source">
+          <small className="source">
             <a
               href="https://github.com/kristinholda/weather-app-react"
               target="_blank"
