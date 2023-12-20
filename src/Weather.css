@@ -99,9 +99,23 @@ a {
   font-weight: 400;
 }
 
+.current-weather-temp .weather-units {
+  list-style-type: none;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .weather-app .weather-units {
   position: relative;
   top: -40px;
+}
+
+.WeatherTemperature {
+  display: flex;
+}
+.weather-app .WeatherTemperature .weather-units {
+  position: relative;
+  top: 15px;
 }
 
 .weather-app .current-weather-description img {

@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherTemperature from "./WeatherTemperature";
 import FeelsLike from "./feels-like.svg";
 import Humidity from "./humidity.svg";
 import Wind from "./wind.svg";
@@ -7,12 +8,7 @@ export default function WeatherInfo(props) {
   return (
     <div className="row current">
       <div className="col-6 current-weather-temp">
-        <h3 id="temperature">{props.data.temperature}</h3>
-        <ul>
-          <li className="weather-units" id="units">
-            °F | °C
-          </li>
-        </ul>
+        <WeatherTemperature celcius={props.data.temperature} />
       </div>
 
       <div className="col-3 current-weather-description">
