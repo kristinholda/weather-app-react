@@ -24,10 +24,6 @@ export default function WeatherInfo(props) {
 
       <div className="col-3 weather-conditions">
         <ul id="weather-info">
-          <li className="feels-like">
-            <img src={FeelsLike} alt="feels-like-icon" className="icon" /> Feels
-            like: <span id="feels-like"> {props.data.feelsLike}</span>°
-          </li>
           <li className="humidity">
             <img src={Humidity} alt="humidity-icon" className="icon" />{" "}
             Humidity: <span id="humidity-level"> {props.data.humidity}</span>%
