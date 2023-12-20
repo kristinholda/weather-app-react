@@ -1,6 +1,6 @@
 import React from "react";
 import WeatherTemperature from "./WeatherTemperature";
-import FeelsLike from "./feels-like.svg";
+
 import Humidity from "./humidity.svg";
 import Wind from "./wind.svg";
 
