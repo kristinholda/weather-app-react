@@ -185,3 +185,7 @@ ul#weather-info {
 .weather-forecast .weather-forecast-temperature-min {
   opacity: 0.6;
 }
+
+.weather-forecast-temperature-max {
+  padding-right: 5px;
+}
