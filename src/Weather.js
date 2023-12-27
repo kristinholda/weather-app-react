@@ -3,6 +3,7 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -15,6 +16,7 @@ export default function Weather(props) {
       ready: true,
       temperature: Math.round(response.data.temperature.current),
       city: response.data.city,
+      coordinates: response.data.coordinates,
       description: response.data.condition.description,
       iconUrl: response.data.condition.icon_url,
       feelsLike: Math.round(response.data.temperature.feels_like),
@@ -81,7 +83,7 @@ export default function Weather(props) {
             </div>
 
             <WeatherInfo data={weatherData} />
-            <WeatherForecast city={weatherData.city} />
+            <WeatherForecast coordinates={weatherData.coordinates} />
           </div>
         </div>
       </div>

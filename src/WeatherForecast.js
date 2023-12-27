@@ -12,23 +12,29 @@ export default function WeatherForecast(props) {
   }
 
   if (forecastLoaded) {
-    console.log(forecast);
     return (
       <div className="weather-forecast" id="forecast">
         <div className="row">
-          <div className="col-2 weather-forecast-col">
-            <WeatherForecastDay data={forecast[0]} />
-          </div>
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col-2 weather-forecast-col" key={index}>
+                  {index}
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     );
   } else {
-    const apiKey = "4126dae244a02f134d2t0cdo0b2944b0";
-    const city = props.city;
-    const apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    let apiKey = "4126dae244a02f134d2t0cdo0b2944b0";
+    let longitude = props.coordinates.longitude;
+    let latitude = props.coordinates.latitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
 
     axios.get(apiUrl).then(handleResponse);
-
     return null;
   }
 }
